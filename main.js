@@ -8,6 +8,7 @@ counter=0
 var s1 = sentences[0].split('')
     console.log(s1)
     console.log(s1[0])
+    
 $(document).ready(function () {
     $('#keyboard-upper-container').hide();
     $(function () {
@@ -53,13 +54,14 @@ $(document).ready(function () {
     // console.log(map);
 
     $(window).keypress(function (e) {
-        
+        console.log(e.which)
+        console.log(String.fromCharCode(e.which))
         
             if (s1[counter]== String.fromCharCode(e.which) ) {
-                counter= counter+1
-                console.log('first')   
-                
-                
+               if (counter<s1.length){ counter= counter+1
+                $('#yellow-block').animate({left: '+=17px'})
+                console.log('first')  
+               } 
             }
             
             else{
