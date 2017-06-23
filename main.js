@@ -4,8 +4,18 @@ var sentences = [
     'oat itain oat tain nate eate tea anne inant nean',
     'itant eate anot eat nato inate eat anot tain eat',
     'nee ene ate ite tent tiet ent ine ene ete ene ate']
-counter=0
-var s1 = sentences[0].split('')
+letterCounter=0
+sentenceCounter=0
+
+var sent =[
+    (s1 = sentences[0].split('')),
+    (s2 = sentences[1].split('')),
+    (s3 = sentences[2].split('')),
+    (s4 = sentences[3].split('')),
+    (s5 = sentences[4].split('')), 
+]
+    
+    
     console.log(s1)
     console.log(s1[0])
     
@@ -54,19 +64,30 @@ $(document).ready(function () {
     // console.log(map);
 
     $(window).keypress(function (e) {
+        x=sent[0]
+        
+        
         console.log(e.which)
         console.log(String.fromCharCode(e.which))
         
-            if (s1[counter]== String.fromCharCode(e.which) ) {
-               if (counter<s1.length){ counter= counter+1
+            if (x[letterCounter]== String.fromCharCode(e.which) ) {
+               if (letterCounter<x.length){ letterCounter= letterCounter+1
                 $('#yellow-block').animate({left: '+=17px'})
                 console.log('first')  
+                $('#target-letter').append(x[letterCounter ])
+                $('#target-letter').remove(x[letterCounter ])
                } 
+            }
+            else if(x[letterCounter]=x.length){
+                
+                sent++
+
             }
             
             else{
-                counter=counter
+                letterCounter=letterCounter
             }
+            $('#target-letter').remove(x[letterCounter -1])
         }
     )
 
