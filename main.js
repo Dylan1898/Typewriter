@@ -24,7 +24,7 @@ $(document).ready(function () {
             }
         })
     })
-    // THIS MAKES PRESSED KEYS BACKGROUNDS YELLOW
+    // THIS MAKES PRESSED KEYS BACKGROUNDS YELLOW and then removes the class after .2 sec
     var map = {};
     $('span').each(function () {
         var key = $(this).text().trim();
@@ -39,23 +39,10 @@ $(document).ready(function () {
             setTimeout(function () { 
     $((map[key])).removeClass('yellow');
 }, 200);
-            // (map[key]).delay(4000).removeClass('yellow'); 
-            // console.log('remove');
+           
     });
-    var map = {};
-    $('span').each(function () {
-        var key = $(this).text().trim();
-        if (key.length == 1) map[key] = $(this);
-    });
-    console.log(map);
-    $(window).keyup(function (e) {
-        var key = String.fromCharCode(e.which);
-        if (map[key]) map[key].removeClass('yellow');
-        console.log('keyup')
-        
+    $('#sentence').append(sentences[0]);
 
-    });
- 
 
 
 
