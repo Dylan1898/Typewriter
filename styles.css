@@ -41,5 +41,13 @@
   color : #CD2626
 }
 .yellow{
-  background-color: yellow
+  animation-duration:1s;
+  animation: Fade;
+  background-color:yellow;
+  animation-iteration-count: 1
+  
+}
+@keyframes Fade{
+from {background-color: yellow;}
+  to {background-color: #f5f5f5;}
 }

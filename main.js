@@ -8,7 +8,7 @@ $(document).ready(function(){
 //     // $('keyboard-upper-container').toggle();
 //     console.log( 'shift')
 //     };
-})
+
 // })
 // $(function() {                           
 //     $(document).keydown(function(e) {
@@ -35,22 +35,39 @@ $(function() {
         if(e.which == 16){
         $('#keyboard-lower-container').show()
         $('#keyboard-upper-container').hide()
+        console.log('shift')
         }   
     })
         })
-        
+
+
+
+        // THIS MAKES PRESSED KEYS BACKGROUNDS YELLOW
+ var map = {};
+$('span').each(function(){
+   var key = $(this).text().trim();
+   if (key.length==1) map[key]=$(this);
+});
+console.log(map);
+$(window).keypress(function(e){
+  var key = String.fromCharCode(e.which);
+  if (map[key]) map[key].addClass('yellow');
 
 
 
 
-        $(document).keypress(function(e) {
-               i= e.which  
-               if($.inArray(i, ids)){
-                $("span.well well-lg key").find( "id[i]" ).addClass( ".yellow" )
-                    console.log('it worked')
-                }
-                console.log(e.which)
-        })
+  
+  
+});
+
+// this sorta works
+        // $(document).keypress(function(e) {
+        //         $("span[target='e.which id']")
+        //             console.log('it worked');
+        //             console.log(e.which)
+        //         })
+                
+  })      
 
 
 
