@@ -78,7 +78,7 @@ numberOfMistakes = 0
         var seconds = Math.round(elapsed / 1000);
         var minutes = Math.round(seconds / 60);
         $('#feedback').empty()
-        $('#feedback').append('Your score is ' + (numberOfWords / minutes - 2  * numberOfMistakes) );
+        $('#feedback').append('Your score is ' + ((numberOfWords / minutes )- (2  * numberOfMistakes)) );
         alert('Would you like to play again?')
         sentenceCounter=0
         letterCounter=0
