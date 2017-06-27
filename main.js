@@ -4,7 +4,7 @@ var sentences = [
     'oat itain oat tain nate eate tea anne inant nean',
     'itant eate anot eat nato inate eat anot tain eat',
     'nee ene ate ite tent tiet ent ine ene ete ene ate']
-letterCounter = 0
+var letterCounter = 0
 sentenceCounter = 0
 var start = new Date()
  x = sentences[sentenceCounter]
@@ -79,7 +79,14 @@ numberOfMistakes = 0
         var minutes = Math.round(seconds / 60);
         $('#feedback').empty()
         $('#feedback').append('Your score is ' + ((numberOfWords / minutes )- (2  * numberOfMistakes)) );
-        alert('Would you like to play again?')
+       
+        setTimeout(function(){
+        confirm('Would you like to play again?')
+            if(confirm){
+                location.reload()
+            }
+        },3000)
+        setTimeout()
         sentenceCounter=0
         letterCounter=0
     }
@@ -96,6 +103,7 @@ numberOfMistakes = 0
         console.log('end of sentence');
         sentenceCounter++    
         $('#sentence').append(sentences[sentenceCounter])   
+        x = sentences[sentenceCounter]
         $('#target-letter').append(x[letterCounter])
         
     }
