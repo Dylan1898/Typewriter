@@ -7,7 +7,7 @@ var sentences = [
 var letterCounter = 0
 sentenceCounter = 0
 var start = new Date()
- x = sentences[sentenceCounter]
+x = sentences[sentenceCounter]
 var sent = [
     (s1 = sentences[0].split('')),
     (s2 = sentences[1].split('')),
@@ -19,7 +19,7 @@ console.log(s1)
 console.log(s1[0])
 console.log((sentences[sentenceCounter]))
 
-   
+
 
 $('#keyboard-upper-container').hide();
 $(function () {
@@ -66,8 +66,9 @@ $(window).keypress(function (e) {
 $(document).keypress(function (e) {
 
     // $('#target-letter').append(x[letterCounter])
-numberOfWords = 54
-numberOfMistakes = 0
+    numberOfWords = 54
+    numberOfMistakes = 0
+    
     x = sentences[sentenceCounter]
     // $('#target-letter').append(x[0])
     // console.log(e.which)
@@ -78,53 +79,60 @@ numberOfMistakes = 0
         var seconds = Math.round(elapsed / 1000);
         var minutes = Math.round(seconds / 60);
         $('#feedback').empty()
-        $('#feedback').append('Your score is ' + ((numberOfWords / minutes )- (2  * numberOfMistakes)) );
-       
-        setTimeout(function(){
-        confirm('Would you like to play again?')
-            if(confirm){
+        $('#feedback').append('Your score is ' + ((numberOfWords / minutes) - (2 * numberOfMistakes)));
+
+        setTimeout(function () {
+            confirm('Would you like to play again?')
+            if (confirm) {
                 location.reload()
             }
-        },3000)
+        }, 3000)
         setTimeout()
-        sentenceCounter=0
-        letterCounter=0
+        sentenceCounter = 0
+        letterCounter = 0
     }
     if (letterCounter === x.length) {
-        
+
         $('#target-letter').append(x[letterCounter - 1])
         console.log('0000')
 
     }
     if (letterCounter === x.length - 1) {
+        animateNumber = 17 * letterCounter
+            console.log(animateNumber)
+         $('#yellow-block').css('left' , '5.75em')
         letterCounter = 0
         $('#sentence').empty();
         $('#target-letter').empty();
         console.log('end of sentence');
-        sentenceCounter++    
-        $('#sentence').append(sentences[sentenceCounter])   
+        sentenceCounter++
+        // $('.row col-xs-12 yellow').removeAttr('style')
+        // setTimeout(function () { $('#yellow-block').animate() }, 10);
+       
+        $('#sentence').append(sentences[sentenceCounter])
         x = sentences[sentenceCounter]
         $('#target-letter').append(x[letterCounter])
-        
+
+
     }
-    
+
     $('#feedback').empty()
-    
+
     if (x[letterCounter] == String.fromCharCode(e.which)) {
-        
+          
         $('#target-letter').empty()
         $('#feedback').append('<div class="glyphicon glyphicon-ok"></div>');
         if (letterCounter < x.length) {
             letterCounter = letterCounter + 1
-            // $('#yellow-block').animate({ left: '+=17px' }, 'fast')
+            $('#yellow-block').animate({ left: '+=.75em' }, 12)
             // console.log('first')
             $('#target-letter').append(x[letterCounter])
-            
+
         }
-        
+
     }
     //   if (x[letterCounter] == String.fromCharCode(e.which) && (e.which)== 32) {
-        
+
     //     $('#target-letter').empty()
     //     $('#feedback').append('<div class="glyphicon glyphicon-ok"></div>');
     //     if (letterCounter < x.length) {
@@ -132,9 +140,9 @@ numberOfMistakes = 0
     //         // $('#yellow-block').animate({ left: '+=17px' }, 'fast')
     //         // console.log('first')
     //         $('#target-letter').append('x[letterCounter]')
-            
+
     //     }
-        
+
     // }
     else if (x[letterCounter] !== String.fromCharCode(e.which)) {
         $('#feedback').append('<div class="glyphicon glyphicon-remove"></div>')
@@ -149,7 +157,7 @@ numberOfMistakes = 0
 $(document).ready(function () {
     $('#sentence').append(sentences[sentenceCounter])
     $('#target-letter').append(x[letterCounter])/*MAKE ONLY FIRST LETTER OF FIRST LINE WORK*/
-    
+
 })
 
 
