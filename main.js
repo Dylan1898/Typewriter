@@ -68,26 +68,25 @@ $(document).keypress(function (e) {
         letterCounter = 0
         $('#sentence').empty();
         $('#target-letter').empty();
-        
         sentenceCounter++
         $('#sentence').append(sentences[sentenceCounter])
         x = sentences[sentenceCounter]
         $('#target-letter').append(x[letterCounter])
+        
     }
     $('#feedback').empty()
     if (x[letterCounter] == String.fromCharCode(e.which)) {
         $('#target-letter').empty()
         $('#feedback').append('<div class="glyphicon glyphicon-ok"></div>');
         if (letterCounter < x.length) {
-            letterCounter = letterCounter + 1
-            $('#yellow-block').animate({ left: '+=.75em' }, 12)
+            letterCounter = letterCounter + 1;
+            $('#yellow-block').animate({ left: '+=.72em' }, 12)
             $('#target-letter').append(x[letterCounter])
-        }
+        }     
     }
     else if (x[letterCounter] !== String.fromCharCode(e.which)) {
         $('#feedback').append('<div class="glyphicon glyphicon-remove"></div>')
         letterCounter = letterCounter
-        // console.log('dosentmatch')
         numberOfMistakes++
     }
 })
