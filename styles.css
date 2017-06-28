@@ -36,8 +36,7 @@
 .glyphicon-remove {
   color : #CD2626
 }
+
 .yellow{
-  animation-duration:1s;
-  animation-name: Fade;
-  animation-iteration-count: 1;
+  background-color: yellow
 }
